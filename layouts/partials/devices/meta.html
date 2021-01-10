@@ -1,0 +1,51 @@
+{{ $count := 0 }}
+{{ $first_date := now.AddDate 1000 0 0 }}
+{{ $last_date := now.AddDate -1000 0 0 }}
+{{ $material := .context.Data.Term }}
+{{ $posts := slice }}
+
+{{ range ( where site.Pages "Section" "post" ) }}
+  {{if ( in .Params.Materials $material ) }}
+    {{ $posts = $posts | append . }}
+  {{ end }}
+{{ end }}
+
+{{ range $posts }}
+  {{ $count = add 1 $count }}
+    {{ if lt .Date $first_date }}
+      {{ $first_date = .Date }}
+    {{ end }}
+    {{ if gt .Date $last_date }}
+      {{ $last_date = .Date }}
+    {{ end }}
+{{ end }}
+
+<div class="post_meta">
+  {{ partial "sprite" (dict "icon" "calendar") }}
+  {{- with .context.Params.categories -}}
+    {{- range . }}
+    {{- $category := urlize . }}
+    <a href='{{ absLangURL (printf "categories/%s" $category) }}' class="post_tag button button_translucent">
+      {{- . }}
+    </a>
+  {{- end }}
+  {{- end }}
+
+  {{ $device := .context.Data.Term }}
+  {{ $count = 0 }}
+  {{ $key := "" }}
+  {{ range $name, $term := site.Taxonomies.device_in_topics }}
+    {{ $parts := split $name "/" }}
+    {{ $key = index $parts 1 }}
+    {{ if in  $parts $device    }}
+      {{ $count = len $term }}
+      {{ if gt $count 0 }}
+        {{- $tag := urlize $name }}
+        <a href='{{ absLangURL (printf "device_in_topics/%s" $tag) }}' class="post_tag button button_translucent">
+            {{ upper $key }}
+            <span class="button_tally">{{ $count }}</span>
+        </a>
+      {{ end }}
+    {{ end }}
+  {{ end }}
+</div>

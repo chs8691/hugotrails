@@ -1,0 +1,31 @@
+{{/* 
+    NumberFormatter
+
+    This partial exchanges the characters for thousends and decimals for the give integer,
+    used in Germany. 
+    Use this for intergers and floats instead of Hugo's lang.NumFmt and float which are 
+    not language specific.
+
+    Example
+    {{ partial "func/NumberFormatter.html" ( dict "number" 123456789.1234 "precision" 1 }} 
+            will return 123.456.789,1
+
+    @return String with integer
+
+*/}}
+
+{{ $ret := 1 }}
+{{ $ret := strings.Replace ( lang.NumFmt .precision .number "- . ," ) "," "t" }}
+{{ $ret = strings.Replace $ret "." "d" }}
+{{ $ret = strings.Replace $ret "d" "," }}
+{{ $ret = strings.Replace $ret "t" "." }}
+
+{{/* TODO No glue, why the if and else doesn't work */}}
+{{ if ( eq .lang "de" ) }}
+{{ else }}
+    {{ $ret = ( lang.NumFmt .precision .number "- . ," ) }}
+{{ end }}
+
+{{ return  $ret }}
+
+

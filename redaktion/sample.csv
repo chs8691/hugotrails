@@ -1,0 +1,5 @@
+Id;Datum;Startzeit;Dauer;Distanz;Anstieg;Abstieg;Minimale Höhe;Maximale Höhe;Durchschnittliche Geschwindigkeit;Maximale Geschwindigkeit;Durchschnittliche Herzfrequenz;Maximale Herzfrequenz;Durchschnittliche Trittfrequenz;Maximale Trittfrequenz;Durchschnittliche Leistung;Maximale Leistung;Belastungsempfinden (BORG);Sportart;Trainingsart;Strecke;Material;Wetter;Temperatur;Wind;Energie;Intervalle;Kommentar;
+4708068;2020-12-11;07:05:56;01:21:28;26,49;295;285;126;245;21,97;42,33;128;162;;;;;;Radsport;"Training";;Votec VRX Pro,;;;;;;Die Runde Stunde. Waldfrei zum Trages;
+4708067;2020-12-09;07:06:00;01:17:15;22,05;393;401;124;305;19,64;42,63;126;155;;;;;;Radsport;"Training";;Votec VRX Pro,;;;;;;Die Runde Stunde;
+4708066;2020-12-04;07:02:32;01:26:32;21,07;496;500;132;350;15,75;40,91;119;155;;;;;;Radsport;"Training";;Votec VRX Pro,;;;;;;Die Runde Stunde;
+4708065;2020-12-02;07:10:29;01:06:36;10,91;52;57;128;157;11,48;14,11;136;155;;;;;;Laufsport;"Training";;Laufschuhe Saucony Ride ISO,;;;;;;Lauf am Morgen;

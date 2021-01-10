@@ -1,0 +1,11 @@
+[de]
+  title = "Trainling-Blog" # just for the sake of showing this is possible
+  LanguageName = "Deutsch"
+  weight = 1
+
+[en]
+  title = "Trailing Blog"
+  LanguageName = "English"
+  weight = 2
+
+  

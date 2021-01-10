@@ -1,0 +1,23 @@
+{{/*
+
+    Converts m/s to mm:ss per km
+    Expected parameters: (dict "seconds"  "meters" )
+
+*/}}
+
+{{ $ret := "" }}
+
+{{ $value := mul ( div .seconds .meters ) 1000 }}
+
+{{/* UTC prevents from converting to locale time zone (which leads into wrong hours ) */}}
+{{ $time := (time ( int $value )).UTC  }}
+
+{{ if eq $time.Hour 0 }}
+  {{ $ret =  printf  "%02d:%02d" $time.Minute $time.Second  }}
+{{ end }}
+
+{{ if gt $time.Hour  0 }}
+  {{ $ret =  printf  "%02d:%02d:%02d" $time.Hour $time.Minute $time.Second  }}
+{{ end }}
+
+{{ return $ret }}

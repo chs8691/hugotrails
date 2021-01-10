@@ -1,0 +1,8 @@
+{{/* 
+    Returns time as hh:mm:ss from seconds as integer
+  
+  */}}
+
+  {{/* UTC prevents from converting to locale time zone (which leads into wrong hours ) */}}
+  {{ $time := (time ( int . )).UTC  }}
+  {{ printf  "%02d:%02d:%02d" $time.Hour $time.Minute $time.Second  }}

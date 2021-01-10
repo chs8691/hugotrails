@@ -1,0 +1,18 @@
+{{ define "main" }}
+<div class="grid-inverse wrap content">
+  <ul class="posts" id="posts">
+    {{ range .Pages.GroupByParam "Status" }}
+    <h1>
+      {{ i18n .Key }}
+    </h1>
+    {{- range .Pages }}
+        {{ partial "devices/excerpt" . }}
+      {{- end }}
+    {{ end }}
+    <li>
+      {{- template "_internal/pagination.html" . }}
+    </li>
+  </ul>
+  {{- partial "sidebar" . }}
+</div>
+{{ end }}

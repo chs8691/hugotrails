@@ -1,0 +1,107 @@
+[activity_sport]
+other = "Activity Sport"
+
+[altitude_max]
+other = "Max. Höhe"
+
+[altitude_min]
+other = "Min. Höhe"
+
+[ascent]
+other = "Aufstieg"
+
+[active]
+other = "In Verwendung"
+
+[activity]
+other = "Aktivität"
+
+[average_heart_rate]
+other = "Durchschnittliche Herzfrequenz"
+
+[average_speed]
+other = "Durchschnittliche Geschwindigkeit"
+
+[base]
+other = "Basis"
+
+[bpm]
+other = "bpm"
+
+[category]
+other = "Kategorie"
+
+[date_utc]
+other = "UTC"
+
+[descent]
+other = "Abstieg"
+
+[description]
+other = "Beschreibung"
+
+[device]
+one = "Gerät"
+other = "Geräte"
+
+[device_in_topic]
+other = "Gerät in Thema"
+
+[distance]
+other = "Entfernung"
+
+[duration]
+other = "Dauer"
+
+[draft]
+other = "Entwurf"
+
+[first-used-at]
+other = "Zuerst verwendet am"
+
+[km]
+other = "km"
+
+[km_per_h]
+other = "km/h"
+
+[last-used-at]
+other = "Zuletzt verwendet am"
+
+[m]
+other = "m"
+
+[maximum_heart_rate]
+other = "Max. Herzfrequenz"
+
+[min_per_km]
+other = "min/km"
+
+[number-of-activities]
+other = "Anzahl Aktivitäten"
+
+[number-of-terms]
+other = "Anzahl"
+
+[pace]
+other = "Pace"
+
+[rejected]
+other = "Ausgemustert"
+
+[show]
+other = "Zeigen"
+
+[sport]
+other = "Sportart"
+
+[topic]
+one = "Thema"
+other = "Themen"
+
+[utensils]
+one = "Utensil"
+other = "Utensilien"
+
+[year]
+other = "Jahr"

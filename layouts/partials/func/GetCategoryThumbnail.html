@@ -1,0 +1,16 @@
+{{/*
+    Returns image path for a give category
+
+  */}}
+
+{{ $image := "/images/hiking.png" }}
+
+{{ if eq . "running" }}
+  {{ $image = "/images/running.png" }}
+{{ end }}
+
+{{ if eq . "cycling" }}
+  {{ $image = "/images/cycling.png" }}
+{{ end }}
+
+{{ return $image }}

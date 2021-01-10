@@ -1,0 +1,42 @@
+[ascending]
+other = "Ascending"
+
+[average_heart_rate]
+other = "Average Heart Rate"
+
+[average_speed]
+other = "Average Speed"
+
+[bpm]
+other = "bpm"
+
+[distance]
+other = "Distance"
+
+[duration]
+other = "Duration"
+
+[km]
+other = "km"
+
+[km_per_h]
+other = "km/h"
+
+[m]
+other = "m"
+
+[materials]
+other = "Materials"
+
+[maximum_heart_rate]
+other = "Maximum Heart Rate"
+
+
+[min_per_km]
+other = "min/km"
+
+[pace]
+other = "Pace"
+
+[show]
+other = "Show"

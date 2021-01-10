@@ -1,0 +1,66 @@
+<div class="post_meta">
+  {{ partial "sprite" (dict "icon" "calendar") }}
+  <span class="post_date">
+    {{ partial "func/ReadableDateTime.html" .Date }}
+  </span>
+
+  {{- with .Params.draft -}}
+    {{ if eq . true }}
+    {{- $draft := urlize . }}
+    <a href='{{ absLangURL (printf "draft/%s" $draft) }}' class="post_tag button button_translucent">
+      draft
+    </a>
+    {{ end }}
+  {{- end }}
+
+  {{- with .Params.year -}}
+    {{- $year := urlize . }}
+    <a href='{{ absLangURL (printf "year/%s" $year) }}' class="post_tag button button_translucent">
+      {{- . }}
+    </a>
+  {{- end }}
+
+  {{- with .Params.category -}}
+    {{- $category := urlize . }}
+    <a href='{{ absLangURL (printf "category/%s" $category) }}' class="post_tag button button_translucent">
+      {{- . }}
+    </a>
+  {{- end }}
+
+  {{- with .Params.topic -}}
+    {{- $topic := urlize . }}
+    <a href='{{ absLangURL (printf "topic/%s" $topic) }}' class="post_tag button button_translucent">
+      {{- . }}
+    </a>
+  {{- end }}
+
+  {{- with .Params.device -}}
+    {{- $device := urlize . }}
+    <a href='{{ absLangURL (printf "device/%s" $device) }}' class="post_tag button button_translucent">
+      {{- . }}
+    </a>
+  {{- end }}
+
+  {{- with .Params.sport -}}
+    {{- $sport := urlize . }}
+    <a href='{{ absLangURL (printf "sport/%s" $sport) }}' class="post_tag button button_translucent">
+      {{- . }}
+    </a>
+  {{- end }}
+
+  {{- with .Params.topic -}}
+    {{- $topic := urlize . }}
+    <a href='{{ absLangURL (printf "topic/%s" $topic) }}' class="post_tag button button_translucent">
+      {{- . }}
+    </a>
+  {{- end }}
+
+  {{- with .Params.tags -}}
+    {{- range . }}
+    {{- $tag := urlize . }}
+    <a href='{{ absLangURL (printf "tags/%s" $tag) }}' class="post_tag button button_translucent">
+      {{- . }}
+    </a>
+  {{- end }}
+  {{- end }}
+</div>

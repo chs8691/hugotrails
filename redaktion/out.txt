@@ -1,0 +1,4 @@
+loading from ../../demo/tcx/2018/Christian_Schulzendorff_2018-04-08_10-59-32_VK.tcx...
+Processing 1/1: Christian_Schulzendorff_2018-04-08_10-59-32_VK.tcx
+1 posts created, 0 skipped.
+All 1 posts updated with Sidecar data, 0 failed.

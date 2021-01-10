@@ -1,0 +1,11 @@
+{{/*
+
+    Converts m/s to km/h
+    Expected parameters: (dict "seconds"  "meters" )
+
+
+*/}}
+
+{{ $value := ( div .meters .seconds ) }}
+
+{{ return ( div ( mul 3600 $value ) 1000 ) }}

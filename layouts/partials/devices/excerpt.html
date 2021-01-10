@@ -1,0 +1,51 @@
+{{ $count := 0 }}
+{{ $first_date := now.AddDate 1000 0 0 }}
+{{ $last_date := now.AddDate -1000 0 0 }}
+{{ $device := .Data.Term }}
+{{ $posts := slice }}
+
+{{ range ( where site.Pages "Section" "post" ) }}
+  {{if ( in .Params.Devices $device ) }}
+    {{ $posts = $posts | append . }}
+    {{ end }}
+{{ end }}
+
+{{ range $posts }}
+  {{ $count = add 1 $count }}
+    {{ if lt .Date $first_date }}
+      {{ $first_date = .Date }}
+    {{ end }}
+    {{ if gt .Date $last_date }}
+      {{ $last_date = .Date }}
+    {{ end }}
+{{ end }}
+
+<li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="{{ .Permalink }}">{{ .Params.Name  }}</a>
+      </h3>
+      {{ partial "devices/meta" (dict "context" . "posts" $posts ) }}
+    </div>
+    <p class="pale">
+      <ul>
+          <li>{{ i18n "sports" }}: {{ .Params.sports }}</li>
+        <li>{{ i18n "number-of-activities" }}: {{ partial "func/NumberFormatter" ( dict "number" $count "precsision" 0 ) }}</li>
+        <li>{{ i18n "first-used-at" }}: {{ partial "func/ReadableDate" $first_date }}</li>
+        <li>{{ i18n "last-used-at" }}: {{ partial "func/ReadableDate" $last_date }}</li>
+      </ul>
+    </p>
+    {{- with .Params.thumbnail }}
+    <div class="excerpt_footer partition">
+      <div class="excerpt_thumbnail">
+        <img src='{{ if (hasPrefix . "http") }}{{ . }}{{ else }}{{ absURL . }}{{ end }}'>
+      </div>
+      {{ else }}
+      <div class="excerpt_footer">
+        {{- end }}
+        <div>
+        </div>
+      </div>
+    </div>
+  </li>

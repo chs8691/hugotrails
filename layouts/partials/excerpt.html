@@ -1,0 +1,90 @@
+<li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
+        <a href="{{ .Permalink }}">{{ .Title  }}</a>
+      </h3>
+      {{ partial "post-meta" . }}
+    </div>
+    {{ $lang:= .Site.Language.Lang }}
+    <div class="excerpt_footer partition">
+      <div class="excerpt_thumbnail">
+        {{ with .Params.category }}
+          {{ $thumbnail := ( partial "func/GetCategoryThumbnail.html" . ) }}
+            <img src='{{ $thumbnail }}'>
+        {{end }}
+      </div>
+        <div>
+        <p class="pale">
+          <ul>
+
+          {{ with .Params.activity }}
+            <li>{{ i18n "activity" }}: {{ . }}</li>
+          {{ end }}
+
+          {{ with .Params.activity_sport }}
+            <li>{{ i18n "activity_sport" }}: {{ . }}</li>
+          {{ end }}
+
+          {{ with .Params.altitude_max__m }}
+            <li>{{ i18n "altitude_max" }}: {{ partial "func/NumberFormatter.html" ( dict "number" . "precision" 0 "lang" $lang )}} {{ i18n "m" }}</li>
+          {{ end }}
+
+          {{ with .Params.altitude_min__m }}
+            <li>{{ i18n "altitude_min" }}: {{ partial "func/NumberFormatter.html" ( dict "number" . "precision" 0 "lang" $lang )}} {{ i18n "m" }}</li>
+          {{ end }}
+
+          {{ with .Params.ascent__m }}
+            <li>{{ i18n "ascent" }}: {{ partial "func/NumberFormatter.html" ( dict "number" . "precision" 0 "lang" $lang )}} {{ i18n "m" }}</li>
+          {{ end }}
+
+          {{ with .Params.average_heart_rate__bpm }}
+            <li>{{ i18n "average_heart_rate" }}: {{ . }}  {{ i18n "bpm" }}</li>
+          {{ end }}
+
+          {{ if eq .Params.category "cycling" }}
+            {{ with .Params.average_speed__km_per_h }}
+              <li>{{ i18n "average_speed" }}: {{ partial "func/NumberFormatter.html" ( dict "number" . "precision" 1 "lang" $lang )}} {{ i18n "km_per_h" }}</li>
+              {{ end }}
+          {{ end }}
+
+          {{ with .Params.base }}
+            <li>{{ i18n "base" }}: {{ . }}  </li>
+          {{ end }}
+
+          {{ with .Params.date_utc }}
+            <li>{{ i18n "date_utc" }}: {{ . }}</li>
+          {{ end }}
+
+          {{ with .Params.descent__m }}
+            <li>{{ i18n "descent" }}: {{ partial "func/NumberFormatter.html" ( dict "number" . "precision" 0 "lang" $lang )}} {{ i18n "m" }}</li>
+          {{ end }}
+
+          {{ with .Params.description }}
+            <li>{{ i18n "description" }}: {{ . }}</li>
+          {{ end }}
+
+          {{ with .Params.distance__m }}
+            <li>{{ i18n "distance" }}: {{ partial "func/NumberFormatter.html" ( dict "number" ( div . 1000.0 ) "precision" 2 "lang" $lang )}} {{ i18n "km" }}</li>
+          {{ end }}
+
+          {{ with .Params.maximum_heart_rate__bpm }}
+            <li>{{ i18n "maximum_heart_rate" }}: {{ . }}  {{ i18n "bpm" }}</li>
+          {{ end }}
+
+          {{ if ne .Params.category "cycling" }}
+            {{ with .Params.pace__s_per_km }}
+              <li>{{ i18n "pace" }}: {{ . }} {{ i18n "min_per_km" }}</li>
+            {{ end }}
+          {{ end }}
+
+          {{ with .Params.total_time__s }}
+            <li>{{ i18n "duration" }}: {{ partial "func/ReadableTime" . }}</li>
+          {{ end }}
+
+          </ul>
+          <a href="{{ .Permalink }}" class="excerpt_more button">{{ i18n "show" }}</a>
+        </div>
+      </div>
+    </div>
+  </li>

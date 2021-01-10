@@ -1,0 +1,7 @@
+{{/* 
+    Returns date as "Mon., 13. Februar 2029" from date object
+  
+  */}}
+  {{ $w := index site.Data.weekday_short (printf "%d" .Weekday) }}
+  {{ $m := index site.Data.month (printf "%d" .Month) }} 
+  {{ printf  "%s, %02d. %s %d" $w .Day $m .Year }}
